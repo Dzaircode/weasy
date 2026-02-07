@@ -1,0 +1,38 @@
+version: '3.9'
+
+services:
+
+  postgres:
+    image: postgres:15
+    container_name: weasy_postgres
+    restart: always
+    environment:
+      POSTGRES_DB: weasy_db
+      POSTGRES_USER: weasy_user
+      POSTGRES_PASSWORD: weasy_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - weasy_pgdata:/var/lib/postgresql/data
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  mongo:
+    image: mongo:6
+    container_name: weasy_mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - weasy_mongodata:/data/db
+      - ./mongo/init.js:/docker-entrypoint-initdb.d/init.js
+
+  redis:
+    image: redis:7
+    container_name: weasy_redis
+    restart: always
+    ports:
+      - "6379:6379"
+
+volumes:
+  weasy_pgdata:
+  weasy_mongodata:
