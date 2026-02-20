@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:driver_app/View/Themes/app_theme.dart' as theme;
 import 'components/registration_stepper.dart';
 import 'components/field.dart';
-import '../../components/custom_dropdown.dart';
-import '../../components/primary_button.dart';
+import 'package:driver_app/View/Screens/Auth_Screens/Register_Screen/components/custom_dropdown.dart';
+import 'package:driver_app/View/Screens/Auth_Screens/Register_Screen/components/primary_button.dart';
 import 'components/image_uploader.dart';
-import 'driver_information_screen.dart';
+import 'package:driver_app/View/Screens/Auth_Screens/Register_Screen/driver_screen.dart';
 
 class VehicleDetailsScreen extends StatefulWidget {
   const VehicleDetailsScreen({Key? key}) : super(key: key);
@@ -54,7 +54,7 @@ class _VehicleDetailsScreenState extends State<VehicleDetailsScreen> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => const DriverInformationScreen(),
+          builder: (context) => DriverInformationScreen(),
         ),
       );
     }
@@ -179,10 +179,6 @@ class _VehicleDetailsScreenState extends State<VehicleDetailsScreen> {
                         value: _selectedBrand,
                         items: _brands,
                         isRequired: true,
-                        prefixIcon: Padding(
-                          padding: EdgeInsets.all(12),
-                          child: Icon(Icons.branding_watermark, size: 20),
-                        ),
                         onChanged: (value) {
                           setState(() {
                             _selectedBrand = value!;
