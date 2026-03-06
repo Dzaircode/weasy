@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:driver_app/View/Themes/app_theme.dart' as theme;
-import 'package:driver_app/View/Screens/Other_Screens/Splash_Screen/splash_screen.dart';
+import 'package:driver_app/View/Screens/Main_Screens/Home_Screen/home_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       title: 'Weasy',
       debugShowCheckedModeBanner: false,
       theme: theme.AppTheme.theme,
-      home: const SplashScreen(),
+      home: const HomeScreen(),
     );
   }
 }
